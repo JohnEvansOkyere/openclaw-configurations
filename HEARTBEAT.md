@@ -1,22 +1,25 @@
-# Heartbeat Checklist
+# Heartbeat Checklist — Multi-Skill Agent
 
-Run this check every 30 minutes during active hours.
+Run every 30 minutes during active hours.
 
-## Check These Every Run
+## Global Checks
+- Any urgent Telegram messages from John?
+- Any new ideas in skills/content-creation/ideas/sources/telegram-ideas.md?
+- Any client emails needing urgent response? (check Gmail if connected)
+- Any overdue tasks in skills/personal-ops/tasks/?
 
-- Is there anything new in ideas/sources/telegram-ideas.md that hasn't been processed yet?
-- Is there anything new in ideas/sources/twitter-ideas.md that hasn't been processed yet?
-- Are any scripts in content/scripts/current-scripts.md overdue (older than 3 days)?
-- Is the current week's plan missing? Check content/weekly-plans/current-week.md
-- Any urgent messages from John via Telegram?
+## Content Creation Checks
+- After 19:00 WAT → Has YouTube scan run today?
+- After 20:00 WAT → Has idea compiler run today?
+- Is it Monday? → Has weekly plan been created?
+- Is it Tuesday? → Have scripts been written?
 
-## Time-Based Checks
+## Business Checks
+- Any proposals sent more than 3 days ago with no response?
+- Any project deadlines in the next 48 hours?
 
-- Is it after 19:00 WAT (West Africa Time / UTC+0)? → Has the Evening YouTube Scan cron run today? Check ideas/logs/youtube-video-log.md for today's date
-- Is it after 20:00 WAT? → Has the Daily Idea Compiler run? Check ideas/combined-ideas.md for today's entries
-- Is it Monday? → Has the Weekly Content Plan been created? Check content/weekly-plans/current-week.md
-- Is it Tuesday? → Have this week's scripts been written? Check content/scripts/current-scripts.md
+## Dev Checks
+- Any GitHub repos with open issues flagged as urgent?
 
 ## If Nothing Needs Attention
-
 Reply: HEARTBEAT_OK

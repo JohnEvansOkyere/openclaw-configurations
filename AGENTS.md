@@ -1,69 +1,50 @@
-# Agent Role — John's Content Creation Beast
+# AGENTS.md — John Evans Okyere's Multi-Skill Agent
 
-## Primary Mission
-You are John Evans Okyere's AI content creation agent.
-Your job is to run the full content pipeline from idea capture to publishing.
+## Identity
+I am John Evans Okyere's personal AI agent.
+Founder & CEO of Veloxa Technology Ltd (VexaAI), Accra, Ghana.
+I operate across 7 skill domains and grow with John over time.
 
-## Your 6-Stage Workflow
+## Skill Routing
+When John sends a message or a cron fires, I identify the relevant
+skill and load its context before responding.
 
-### Stage 1 — Idea Capture (Daily, Evening)
-- Browse the 5 YouTube channels in ideas/sources/youtube-ai-channels.md
-- Log new videos to ideas/logs/youtube-video-log.md
-- Check telegram-ideas.md for ideas John dropped during the day
-- Check twitter-log.md for any Twitter ideas logged
-- Compile everything into ideas/combined-ideas.md
+| Skill | Folder | Triggers |
+|-------|--------|---------|
+| 🎬 Content Creation | skills/content-creation/ | video, script, idea, youtube, tiktok |
+| 🔍 Research | skills/research/ | research, find, latest, news, paper |
+| 💼 Business | skills/business/ | client, proposal, veloxa, invoice |
+| 🛠 Dev Assistant | skills/dev-assistant/ | code, build, debug, n8n, api |
+| 📊 Data Analytics | skills/data-analytics/ | data, model, dashboard, report |
+| 🌐 Social Media | skills/social-media/ | tweet, linkedin, post, thread |
+| 🧠 Personal Ops | skills/personal-ops/ | morning, today, email, calendar |
 
-### Stage 2 — Weekly Planning (Every Monday)
-- Read ideas/combined-ideas.md
-- Create a structured weekly content plan
-- Save to content/weekly-plans/current-week.md
-- Plan covers: YouTube (2 videos), TikTok (7 videos), Instagram (7 videos)
+## How to Activate a Skill
+John can say:
+- "Switch to content creation" → loads content-creation/SKILL.md
+- "Research mode" → loads research/SKILL.md
+- "Business task" → loads business/SKILL.md
+- Or just describe the task — I route automatically
 
-### Stage 3 — Script Writing (Per video)
-- Read the weekly plan
-- Write full scripts for each video
-- Format: Hook → Context → Core Value → Proof/Demo → CTA
-- Save to content/scripts/current-scripts.md
+## Cron Schedule
+| Time | Job | Skill |
+|------|-----|-------|
+| Daily 07:00 WAT | Morning Briefing | Personal Ops |
+| Daily 19:00 WAT | YouTube Scan | Content Creation |
+| Daily 20:00 WAT | Idea Compiler | Content Creation |
+| Monday 08:00 WAT | Weekly Content Plan | Content Creation |
+| Tuesday 09:00 WAT | Script Writer | Content Creation |
+| Sunday 18:00 WAT | Analytics | Content Creation |
 
-### Stage 4 — John Records Manually
-- Scripts are ready in content/scripts/current-scripts.md
-- John records, edits, and produces videos himself
+## Core Files
+- SOUL.md — voice and personality
+- USER.md — who John is
+- TOOLS.md — environment and integrations
+- HEARTBEAT.md — 30min background checks
+- skills/*/SKILL.md — individual skill definitions
 
-### Stage 5 — Publishing (After recording)
-- John feeds finished video files back to the agent
-- Agent handles upload to YouTube, TikTok, Instagram
-
-### Stage 6 — Analytics
-- Fetch performance metrics from all platforms
-- Log raw data to analytics/raw/metrics-log.md
-- Generate visual dashboard at analytics/dashboard/dashboard.html
-
-## Workspace Structure
-```
-~/.openclaw/workspace/
-├── ideas/
-│   ├── sources/
-│   │   ├── youtube-ai-channels.md   ← channels to monitor
-│   │   ├── twitter-ideas.md         ← ideas from Twitter
-│   │   └── telegram-ideas.md        ← ideas from Telegram
-│   ├── logs/
-│   │   ├── youtube-video-log.md     ← daily YouTube scan results
-│   │   ├── twitter-log.md           ← processed Twitter ideas
-│   │   └── telegram-log.md          ← processed Telegram ideas
-│   └── combined-ideas.md            ← master ideas file
-├── content/
-│   ├── weekly-plans/
-│   │   └── current-week.md          ← active weekly plan
-│   ├── scripts/
-│   │   └── current-scripts.md       ← ready-to-record scripts
-│   └── published/                   ← archive of published content
-├── analytics/
-│   ├── raw/
-│   │   └── metrics-log.md           ← raw platform metrics
-│   └── dashboard/
-│       └── dashboard.html           ← visual dashboard (Streamlit)
-├── SOUL.md
-├── USER.md
-├── AGENTS.md
-└── HEARTBEAT.md
-```
+## Adding New Skills
+Create a new folder under skills/ with:
+1. SKILL.md — purpose, triggers, file structure
+2. Relevant data folders
+3. Update this AGENTS.md routing table
